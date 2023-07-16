@@ -27,14 +27,14 @@ desc {
 
 
 
-.line:not(:first-child) {
+.glitchtext:not(:first-child) {
   position: absolute;
 
   top: 0;
   left: 0;
 }
 
-.line:nth-child(1) {
+.glitchtext:nth-child(1) {
   -webkit-animation: clip 3000ms -300ms linear infinite, glitch1 500ms -537ms linear infinite;
   animation: clip 3000ms -300ms linear infinite, glitch1 500ms -537ms linear infinite;
 }
@@ -99,7 +99,7 @@ desc {
   }
 }
 
-.line:nth-child(2) {
+.glitchtext:nth-child(2) {
   -webkit-animation: clip 3000ms -600ms linear infinite, glitch2 500ms -778ms linear infinite;
   animation: clip 3000ms -600ms linear infinite, glitch2 500ms -778ms linear infinite;
 }
@@ -164,7 +164,7 @@ desc {
   }
 }
 
-.line:nth-child(3) {
+.glitchtext:nth-child(3) {
   -webkit-animation: clip 3000ms -900ms linear infinite, glitch3 500ms -268ms linear infinite;
   animation: clip 3000ms -900ms linear infinite, glitch3 500ms -268ms linear infinite;
 }
@@ -229,7 +229,7 @@ desc {
   }
 }
 
-.line:nth-child(4) {
+.glitchtext:nth-child(4) {
   -webkit-animation: clip 3000ms -1200ms linear infinite, glitch4 500ms -360ms linear infinite;
   animation: clip 3000ms -1200ms linear infinite, glitch4 500ms -360ms linear infinite;
 }
@@ -294,7 +294,7 @@ desc {
   }
 }
 
-.line:nth-child(5) {
+.glitchtext:nth-child(5) {
   -webkit-animation: clip 3000ms -1500ms linear infinite, glitch5 500ms -464ms linear infinite;
   animation: clip 3000ms -1500ms linear infinite, glitch5 500ms -464ms linear infinite;
 }
@@ -359,7 +359,7 @@ desc {
   }
 }
 
-.line:nth-child(6) {
+.glitchtext:nth-child(6) {
   -webkit-animation: clip 3000ms -1800ms linear infinite, glitch6 500ms -395ms linear infinite;
   animation: clip 3000ms -1800ms linear infinite, glitch6 500ms -395ms linear infinite;
 }
@@ -424,7 +424,7 @@ desc {
   }
 }
 
-.line:nth-child(7) {
+.glitchtext:nth-child(7) {
   -webkit-animation: clip 3000ms -2100ms linear infinite, glitch7 500ms -561ms linear infinite;
   animation: clip 3000ms -2100ms linear infinite, glitch7 500ms -561ms linear infinite;
 }
@@ -489,7 +489,7 @@ desc {
   }
 }
 
-.line:nth-child(8) {
+.glitchtext:nth-child(8) {
   -webkit-animation: clip 3000ms -2400ms linear infinite, glitch8 500ms -46ms linear infinite;
   animation: clip 3000ms -2400ms linear infinite, glitch8 500ms -46ms linear infinite;
 }
@@ -554,7 +554,7 @@ desc {
   }
 }
 
-.line:nth-child(9) {
+.glitchtext:nth-child(9) {
   -webkit-animation: clip 3000ms -2700ms linear infinite, glitch9 500ms -908ms linear infinite;
   animation: clip 3000ms -2700ms linear infinite, glitch9 500ms -908ms linear infinite;
 }
@@ -619,7 +619,7 @@ desc {
   }
 }
 
-.line:nth-child(10) {
+.glitchtext:nth-child(10) {
   -webkit-animation: clip 3000ms -3000ms linear infinite, glitch10 500ms -74ms linear infinite;
   animation: clip 3000ms -3000ms linear infinite, glitch10 500ms -74ms linear infinite;
 }

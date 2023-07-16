@@ -3,66 +3,66 @@
 
 window.addEventListener('DOMContentLoaded', () => {
 
-    try {
-        var text = document.getElementById("titleglitch0").innerText;
-        console.log()
-        var textarray = [];
-        var textarray_help = [];
-        var A = ["A", "a", "4"],
-            B = ["B", "b"],
-            C = ["C", "c"],
-            D = ["D", "d"],
-            E = ["E", "e", "3"],
-            F = ["F", "f", "7"],
-            G = ["G", "g", "%"],
-            H = ["H", "H"],
-            I = ["I", "1", "i", "L", "!"],
-            J = ["J", "j"],
-            K = ["K", "k"],
-            L = ["L", "l"],
-            M = ["M", "m", "#"],
-            N = ["N", "n", "#"],
-            O = ["O", "o", "0"],
-            P = ["P", "p"],
-            Q = ["q", "q"],
-            R = ["R", "r"],
-            S = ["S", "s", "$"],
-            T = ["T", "t"],
-            U = ["U", "u"],
-            V = ["V", "v"],
-            W = ["W", "w"],
-            X = ["X", "x"],
-            Y = ["Y", "y"],
-            Z = ["Z", "z"];
+    var text = document.getElementById("titleglitch0").innerText;
+    var changearray = [];
+    var textarray = [];
+    var textarray_help = [];
+    var A = ["A", "a", "4"],
+        B = ["B", "b"],
+        C = ["C", "c"],
+        D = ["D", "d"],
+        E = ["E", "e", "3"],
+        F = ["F", "f", "7"],
+        G = ["G", "g", "%"],
+        H = ["H", "H"],
+        I = ["I", "1", "i", "L", "!"],
+        J = ["J", "j"],
+        K = ["K", "k"],
+        L = ["L", "l"],
+        M = ["M", "m", "#"],
+        N = ["N", "n", "#"],
+        O = ["O", "o", "0"],
+        P = ["P", "p"],
+        Q = ["q", "q"],
+        R = ["R", "r"],
+        S = ["S", "s", "$"],
+        T = ["T", "t"],
+        U = ["U", "u"],
+        V = ["V", "v"],
+        W = ["W", "w"],
+        X = ["X", "x"],
+        Y = ["Y", "y"],
+        Z = ["Z", "z"];
 
-        const lines = text.split('');
 
-        function isLetter(str) {
-            return str.length === 1 && str.match(/[a-z]/i);
+
+    function isLetter(str) {
+        return str.length === 1 && str.match(/[a-z]/i);
+    }
+
+    function shuffle(array) {
+        let currentIndex = array.length, randomIndex;
+
+        // While there remain elements to shuffle...
+        while (currentIndex != 0) {
+
+            // Pick a remaining element...
+            randomIndex = Math.floor(Math.random() * currentIndex);
+            currentIndex--;
+
+            // And swap it with the current element.
+            [array[currentIndex], array[randomIndex]] = [
+                array[randomIndex], array[currentIndex]];
         }
-
-        function shuffle(array) {
-            let currentIndex = array.length, randomIndex;
-
-            // While there remain elements to shuffle...
-            while (currentIndex != 0) {
-
-                // Pick a remaining element...
-                randomIndex = Math.floor(Math.random() * currentIndex);
-                currentIndex--;
-
-                // And swap it with the current element.
-                [array[currentIndex], array[randomIndex]] = [
-                    array[randomIndex], array[currentIndex]];
-            }
-            return array;
-        }
-
+        return array;
+    }
+    function generatePattern() {
+        let lines = text.split('');
         for (var i = 0; i < text.length; i++) {
             textarray[i] = i;
         }
 
-        var changearray = [];
+
         for (var changecount = 0; changecount < 100; changecount++) {
             shuffle(textarray);
             for (var i = 0; i < lines.length; i++) {
@@ -95,26 +95,33 @@ window.addEventListener('DOMContentLoaded', () => {
             document.getElementById("titleglitch" + i).textContent = text;
         }
 
-        function durationSlider() {
-            var count = 0;
-
-            setInterval(function () {
-                var arrayselector = Math.floor(Math.random() * 99);
-
-                for (i = 0; i < 9; i++) {
-                    document.getElementById("titleglitch" + i).textContent = changearray[arrayselector];
-                }
-
-                count += 1;
-                if (count >= 99) {
-                    count = 0;
-                }
-            }, 100);
-
-        }
-
-        durationSlider();
-    } catch (err) {
-        console.error(err);
     }
+
+    function durationSlider() {
+        var count = 0;
+        var prevselector;
+        setInterval(function () {
+            var arrayselector = Math.floor(Math.random() * 99);
+            var changedtext = document.getElementsByClassName("glitchtext");
+            //Check to see if titleglitch0 was externally changed in order to restart pattern generation function.-
+            if (changearray[prevselector] != changedtext[0].innerText) {
+                text = document.getElementById("titleglitch0").innerText;
+                generatePattern();
+            }
+
+            for (i = 0; i < 9; i++) {
+                changedtext[i].textContent = changearray[arrayselector];
+                prevselector = arrayselector;
+            }
+            console.log(arrayselector)
+            count += 1;
+            if (count >= 99) {
+                count = 0;
+            }
+        }, 100);
+
+    }
+
+    generatePattern();
+    durationSlider();
 });
