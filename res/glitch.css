@@ -5,6 +5,7 @@ body {
 }
 
 .glitch {
+  font-family: monospace;
   display: flex;
   position: relative;
   font-size: 100px;

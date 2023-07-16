@@ -126,7 +126,7 @@ window.addEventListener('DOMContentLoaded', () => {
             if (count >= 99) {
                 count = 0;
             }
-        }, 100);
+        }, 200);
 
     }
 

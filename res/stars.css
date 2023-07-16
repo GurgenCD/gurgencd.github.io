@@ -1,3 +1,8 @@
+:root {
+  --shouldblur: 1;
+  --shouldcircle: 1;
+}
+
 html {
   height: 100%;
   overflow: hidden;
@@ -8,21 +13,19 @@ html {
   position: absolute;
   top: 0px;
   left: 0px;
-  height: 100vh;
-  width: 100vw;
-  z-index: 0;
 }
 
 #stars1 {
   width: 1px;
   height: 1px;
-  background: transparent;
+  border-radius: calc(1px*var(--shouldcircle));
+  filter: blur(calc(0.1px*var(--shouldblur)));
   box-shadow: var(--stars1);
   animation: animStar 300s linear infinite, 1s ease-in 0s 1 starVisibility;
 }
 
 #stars1:after {
-  content: " ";
+  content: "";
   position: absolute;
   top: 2000px;
   width: 1px;
@@ -34,13 +37,15 @@ html {
 #stars2 {
   width: 2px;
   height: 2px;
+  border-radius: calc(2px*var(--shouldcircle));
+  filter: blur(calc(0.2px*var(--shouldblur)));
   background: transparent;
   box-shadow: var(--stars2);
   animation: animStar 150s linear infinite, 1s ease-in 0s 1 starVisibility;
 }
 
 #stars2:after {
-  content: " ";
+  content: "";
   position: absolute;
   top: 2000px;
   width: 2px;
@@ -52,13 +57,14 @@ html {
 #stars3 {
   width: 3px;
   height: 3px;
-  background: transparent;
+  border-radius: calc(3px*var(--shouldcircle));
+  filter: blur(calc(0.25px*var(--shouldblur)));;
   box-shadow: var(--stars3);
   animation: animStar 75s linear infinite, 1s ease-in 0s 1 starVisibility;
 }
 
 #stars3:after {
-  content: " ";
+  content: "";
   position: absolute;
   top: 2000px;
   width: 3px;
