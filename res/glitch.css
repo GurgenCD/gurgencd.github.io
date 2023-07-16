@@ -5,14 +5,11 @@ body {
 }
 
 .glitch {
+  display: flex;
   position: relative;
-  color: #fff;
-  font-size: 4.5vh;
-  text-align: center;
-  cursor: default;
+  font-size: 40px;
+  white-space: nowrap;
   user-select: none;
-  -webkit-text-size-adjust: 100%;
-
 }
 
 desc {
@@ -32,6 +29,7 @@ desc {
 
 .line:not(:first-child) {
   position: absolute;
+
   top: 0;
   left: 0;
 }
