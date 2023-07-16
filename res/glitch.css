@@ -7,7 +7,7 @@ body {
 .glitch {
   display: flex;
   position: relative;
-  font-size: 40px;
+  font-size: 100px;
   white-space: nowrap;
   user-select: none;
 }

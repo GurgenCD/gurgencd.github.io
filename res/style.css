@@ -14,6 +14,14 @@ p {
     font-weight: 350 !important;
 }
 
+a {
+    color: #a147cd !important;
+}
+
+a:hover {
+    color: #622f7c !important;
+}
+
 #backgroundkinda {
     background-color: rgb(9, 10, 15);
     width: 100vw;
@@ -189,7 +197,8 @@ body {
 }
 
 .mybg {
-    background-color: #ebebeb;
+    background-color: rgb(245 245 245);
+    ;
     border-radius: 1rem;
 }
 
@@ -204,18 +213,29 @@ body {
     -moz-outline-radius: 5px;
     outline-offset: -1px;
     background: rgba(0, 0, 0, 0.5);
+    border-radius: 0.5rem;
 }
 
-
 #buttons span:hover {
-    box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.5), 0 0 20px rgba(255, 255, 255, 0.2);
+    box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.5), 0 0 20px rgba(0, 0, 0, 0.5);
     outline-color: rgba(255, 255, 255, 0);
     outline-offset: 20px;
     cursor: pointer;
+    color: white;
+}
+
+.buttonswhite {
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0), 0 0 20px rgba(0, 0, 0, 0) !important;
+    border: 1px solid #848587 !important;
+    outline-color: rgba(255, 255, 255, 0.5) !important;
+}
+
+.buttonswhite:hover {
+    box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.2), 0 0 20px rgba(255, 255, 255, 0.5) !important;
 }
 
 #buttons>a {
-    color: white;
+    color: white !important;
 }
 
 

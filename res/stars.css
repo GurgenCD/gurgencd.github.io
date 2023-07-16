@@ -18,7 +18,7 @@ html {
   height: 1px;
   background: transparent;
   box-shadow: var(--stars1);
-  animation: animStar 30s linear infinite;
+  animation: animStar 300s linear infinite, 1s ease-in 0s 1 starVisibility;
 }
 
 #stars1:after {
@@ -36,7 +36,7 @@ html {
   height: 2px;
   background: transparent;
   box-shadow: var(--stars2);
-  animation: animStar 150s linear infinite;
+  animation: animStar 150s linear infinite, 1s ease-in 0s 1 starVisibility;
 }
 
 #stars2:after {
@@ -54,7 +54,7 @@ html {
   height: 3px;
   background: transparent;
   box-shadow: var(--stars3);
-  animation: animStar 250s linear infinite;
+  animation: animStar 75s linear infinite, 1s ease-in 0s 1 starVisibility;
 }
 
 #stars3:after {
@@ -74,5 +74,14 @@ html {
 
   to {
     transform: translateY(-2000px);
+  }
+}
+
+@keyframes starVisibility {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }
