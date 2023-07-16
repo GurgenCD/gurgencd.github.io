@@ -1,6 +1,9 @@
 :root {
   --shouldblur: 1;
   --shouldcircle: 1;
+  --stars1-color: #fff;
+  --stars2-color: #fff;
+  --stars3-color: #a147cd;
 }
 
 html {
