@@ -1,8 +1,8 @@
 html {
-    height: 100%;
-    overflow: hidden;
-    background-color: rgb(9, 10, 15);
-  }
+  height: 100%;
+  overflow: hidden;
+  background-color: rgb(9, 10, 15);
+}
 
 .stars {
   position: absolute;
@@ -12,6 +12,7 @@ html {
   width: 100vw;
   z-index: 0;
 }
+
 #stars1 {
   width: 1px;
   height: 1px;
@@ -19,6 +20,7 @@ html {
   box-shadow: var(--stars1);
   animation: animStar 30s linear infinite;
 }
+
 #stars1:after {
   content: " ";
   position: absolute;
@@ -28,7 +30,7 @@ html {
   background: transparent;
   box-shadow: var(--stars1);
 }
-  
+
 #stars2 {
   width: 2px;
   height: 2px;
@@ -36,6 +38,7 @@ html {
   box-shadow: var(--stars2);
   animation: animStar 150s linear infinite;
 }
+
 #stars2:after {
   content: " ";
   position: absolute;
@@ -53,6 +56,7 @@ html {
   box-shadow: var(--stars3);
   animation: animStar 250s linear infinite;
 }
+
 #stars3:after {
   content: " ";
   position: absolute;
@@ -67,8 +71,8 @@ html {
   from {
     transform: translateY(0px);
   }
+
   to {
     transform: translateY(-2000px);
   }
 }
-   

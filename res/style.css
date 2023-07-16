@@ -4,16 +4,19 @@
 }
 
 @media (min-width: 992px) {
-    .rounded-lg-3 { border-radius: .3rem; }
+    .rounded-lg-3 {
+        border-radius: .3rem;
+    }
 }
 
 p {
-  font-size: 1.5rem !important;
-  font-weight: 350 !important;
+    font-size: 1.5rem !important;
+    font-weight: 350 !important;
 }
-#backgroundkinda{
+
+#backgroundkinda {
     background-color: rgb(9, 10, 15);
-    width:100vw;
+    width: 100vw;
     height: 107px;
     position: relative;
     top: 0;
@@ -23,23 +26,23 @@ p {
     font-family: "Roboto Mono", monospace;
     flex-direction: column;
     align-items: center;
-  }
-  
+}
+
 #Contact {
-	display: none;
-	position: absolute;
-	top: 0px;
-	left: 0px;
-	width: 100%;
-	height: 100vh;
-	cursor: pointer;
-	z-index: 2;
-	text-align: center;
-	background: rgba(0, 0, 0, 0.5);
-	transition: 0.2s;
-	opacity: 0;
+    display: none;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100vh;
+    cursor: pointer;
+    z-index: 2;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.5);
+    transition: 0.2s;
+    opacity: 0;
     vertical-align: middle;
-    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 #Contactboxbody {
@@ -98,24 +101,26 @@ p {
     user-select: none;
 }
 
-img{
+img {
     background-color: white;
     border-radius: 1rem;
 }
 
 .image-wrapper {
     position: relative;
-  }
-  .image-hover {
+}
+
+.image-hover {
     position: absolute;
     top: 0;
     left: 0;
     opacity: 0;
     transition: opacity 1s ease-out;
-  }
-  .image-hover:hover {
+}
+
+.image-hover:hover {
     opacity: 1;
-  }
+}
 
 textbox div {
     hyphens: auto;
@@ -124,9 +129,8 @@ textbox div {
     margin-right: auto;
 }
 
-textbox
-{
-    margin:auto;
+textbox {
+    margin: auto;
     width: 48vw;
     height: 100%;
     text-align: center;
@@ -134,15 +138,15 @@ textbox
     align-content: center;
 }
 
-textbox > .headertext {
-font-size: 50px;
-font-weight: 600;
-hyphens: auto;
+textbox>.headertext {
+    font-size: 50px;
+    font-weight: 600;
+    hyphens: auto;
 }
 
-textbox > .commenttext {
-font-size: 10px;
-text-align: left;
+textbox>.commenttext {
+    font-size: 10px;
+    text-align: left;
 }
 
 .bigbody {
@@ -155,10 +159,11 @@ text-align: left;
 
 }
 
-html, body {
-    height:100%;
+html,
+body {
+    height: 100%;
     margin: 0;
-    overflow-x:hidden;
+    overflow-x: hidden;
     background-color: rgb(9, 10, 15) !important
 }
 
@@ -168,7 +173,7 @@ html, body {
     left: 0px;
     width: 100%;
     text-align: center;
-	z-index: 1;
+    z-index: 1;
 }
 
 #buttons {
@@ -176,14 +181,14 @@ html, body {
     justify-content: center;
     color: white;
     user-select: none;
-    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 .preload {
     transition: none !important;
 }
 
-.mybg{
+.mybg {
     background-color: #ebebeb;
     border-radius: 1rem;
 }
@@ -198,7 +203,7 @@ html, body {
     outline-color: rgb(0 0 0 / 50%);
     -moz-outline-radius: 5px;
     outline-offset: -1px;
-    background: rgba(0,0,0,0.5);
+    background: rgba(0, 0, 0, 0.5);
 }
 
 
@@ -206,29 +211,32 @@ html, body {
     box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.5), 0 0 20px rgba(255, 255, 255, 0.2);
     outline-color: rgba(255, 255, 255, 0);
     outline-offset: 20px;
-	cursor: pointer;
+    cursor: pointer;
 }
 
-#buttons > a {
-	color: white;
+#buttons>a {
+    color: white;
 }
 
 
 
 @keyframes slideInFromLeft {
     0% {
-      background-color: rgba(0,0,0,1);
-      z-index: 100;
+        background-color: rgba(0, 0, 0, 1);
+        z-index: 100;
     }
-    15%{
-        background-color: rgba(0,0,0,1);    
+
+    15% {
+        background-color: rgba(0, 0, 0, 1);
     }
+
     100% {
-      background-color: rgba(0,0,0,0);
-      z-index: -2;
+        background-color: rgba(0, 0, 0, 0);
+        z-index: -2;
     }
-  }
-  inverseflash{
+}
+
+inverseflash {
     width: 100%;
     height: 100%;
     animation: 1s ease-out 0s 1 slideInFromLeft;
