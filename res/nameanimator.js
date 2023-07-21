@@ -1,44 +1,45 @@
 // Written by Gurgen Gurgenyan, circion.design
 // A lot of the script was written a while ago and I slapped parametricity just a second ago.
 
-
+var charCount = 2;
+var ignoreWhiteSpaces = true;
 
 window.addEventListener('DOMContentLoaded', () => {
 
-    var text = document.getElementById("titleglitch0").innerText;
-    var changearray = [];
-    var textarray = [];
-    var textarray_help = [];
+    var text = $(".glitchtext").text();
+    //Since the glitch css effect requires multiple divs, this simply sets the text globally.
+    $(".glitchtext").text(text);
 
-    //Usage: lettermap["A"][2]
-    var lettermap =
+    var letterMap =
     {
-        "A" : ["A", "a", "4"],
-        "B" : ["B", "b"],
-        "C" : ["C", "c"],
-        "D" : ["D", "d"],
-        "E" : ["E", "e", "3"],
-        "F" : ["F", "f", "7"],
-        "G" : ["G", "g"],
-        "H" : ["H", "H"],
-        "I" : ["I", "1", "i", "L", "!"],
-        "J" : ["J", "j"],
-        "K" : ["K", "k"],
-        "L" : ["L", "l"],
-        "M" : ["M", "m", "#"],
-        "N" : ["N", "n", "#"],
-        "O" : ["O", "o", "0"],
-        "P" : ["P", "p"],
-        "Q" : ["q", "q"],
-        "R" : ["R", "r"],
-        "S" : ["S", "s", "$"],
-        "T" : ["T", "t"],
-        "U" : ["U", "u", "%"],
-        "V" : ["V", "v"],
-        "W" : ["W", "w"],
-        "X" : ["X", "x"],
-        "Y" : ["Y", "y"],
-        "Z" : ["Z", "z"]
+        "A": ["A", "a", "4"],
+        "B": ["B", "b"],
+        "C": ["C", "c"],
+        "D": ["D", "d"],
+        "E": ["E", "e", "3"],
+        "F": ["F", "f", "7"],
+        "G": ["G", "g"],
+        "H": ["H", "H"],
+        "I": ["I", "1", "i", "L", "!"],
+        "J": ["J", "j"],
+        "K": ["K", "k"],
+        "L": ["L", "l"],
+        "M": ["M", "m", "#"],
+        "N": ["N", "n", "#"],
+        "O": ["O", "o", "0"],
+        "P": ["P", "p"],
+        "Q": ["q", "q"],
+        "R": ["R", "r"],
+        "S": ["S", "s", "$"],
+        "T": ["T", "t"],
+        "U": ["U", "u", "%"],
+        "V": ["V", "v"],
+        "W": ["W", "w"],
+        "X": ["X", "x"],
+        "Y": ["Y", "y"],
+        "Z": ["Z", "z"],
+        //In case ignoreWhiteSpaces is true
+        " ": " "
     }
 
 
@@ -47,80 +48,75 @@ window.addEventListener('DOMContentLoaded', () => {
         return str.length === 1 && str.match(/[a-z]/i);
     }
 
-    function shuffle(array) {
-        let currentIndex = array.length, randomIndex;
+    function shuffleArray(array) {
 
-        // While there remain elements to shuffle...
-        while (currentIndex != 0) {
+        let origPos = new Array;
+        let shuffledArray = array.slice(0);
 
-            // Pick a remaining element...
-            randomIndex = Math.floor(Math.random() * currentIndex);
-            currentIndex--;
-
-            // And swap it with the current element.
-            [array[currentIndex], array[randomIndex]] = [
-                array[randomIndex], array[currentIndex]];
+        //I should probably find a cleaner way to do this
+        for (i = shuffledArray.length - 1; i > -1; i--) {
+            origPos[i] = i;
         }
-        return array;
+
+        for (let i = shuffledArray.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [shuffledArray[i], shuffledArray[j]] = [shuffledArray[j], shuffledArray[i]];
+            [origPos[i], origPos[j]] = [origPos[j], origPos[i]];
+        }
+
+        return {
+            "shuffledArray": shuffledArray,
+            "origPos": origPos
+        }
+
     }
-    function generatePattern() {
-        let lines = text.split('');
-        for (var i = 0; i < text.length; i++) {
-            textarray[i] = i;
-        }
 
+    function generateAnimation(glitchtext) {
 
-        for (var changecount = 0; changecount < 100; changecount++) {
-            shuffle(textarray);
-            for (var i = 0; i < lines.length; i++) {
-                textarray_help[i] = lines[textarray[i]].toUpperCase();
-            }
-            //Yes I understand the security vulnerability associated with eval()
-            if (isLetter(textarray_help[0]) && isLetter(textarray_help[1])) {
-                var zero = lettermap[textarray_help[0]];
-                var two = lettermap[textarray_help[1]];
-            }
-
-            var changethis = text;
-            var which = Math.random();
-            if (which == 0) {
-                const changethis_arrayed = changethis.split('');
-                if (isLetter(textarray_help[0]) && isLetter(textarray_help[1])) {
-                    changethis_arrayed[textarray[0]] = lettermap[lines[textarray[0]].toUpperCase()][Math.floor(Math.random() * zero.length)];
+        let textsplit = glitchtext.split('');
+        //Can't quite think of a more efficient way to ignore whitespaces
+        if (ignoreWhiteSpaces) {
+            var spacesMap = new Array;
+            for (a = 0; a < textsplit.length; a++) {
+                if (!isLetter(textsplit[a])) {
+                    spacesMap.push(a);
                 }
             }
-            else {
-                const changethis_arrayed = changethis.split('');
-                if (isLetter(textarray_help[0]) && isLetter(textarray_help[1])) {
-                    changethis_arrayed[textarray[0]] = lettermap[lines[textarray[0]].toUpperCase()][Math.floor(Math.random() * zero.length)];
-                    changethis_arrayed[textarray[1]] = lettermap[lines[textarray[1]].toUpperCase()][Math.floor(Math.random() * two.length)];
-                }
-                var final = changethis_arrayed.join('');
-            }
-            changearray[changecount] = final;
-        }
-        for (i = 0; i < 9; i++) {
-            document.getElementById("titleglitch" + i).textContent = text;
+            textsplit = textsplit.filter(char => char !== ' ')
         }
 
+        let glitcharray = [];
+        for (let i = 0; i < 100; i++) {
+
+            modifiedtext = textsplit.slice(0);
+            let charRank = shuffleArray(modifiedtext);
+
+            for (x = 0; x < charCount; x++) {
+                let pickedCharmap = letterMap[charRank.shuffledArray[x].toUpperCase()]
+                let random = Math.floor(Math.random() * pickedCharmap.length);
+                modifiedtext[charRank.origPos[x]] = pickedCharmap[random];
+            }
+
+            if (ignoreWhiteSpaces) {
+                console.log(spacesMap)
+                for (b = 0; b < spacesMap.length; b++) {
+                    modifiedtext.splice(spacesMap[b], 0, " ")
+                }
+            }
+
+            glitcharray[i] = modifiedtext.join('');
+        }
+        return glitcharray
     }
 
     function durationSlider() {
+
+        let glitcharray = generateAnimation(text);
+
         var count = 0;
-        var prevselector;
         setInterval(function () {
             var arrayselector = Math.floor(Math.random() * 99);
-            var changedtext = document.getElementsByClassName("glitchtext");
-            //Check to see if titleglitch0 was externally changed in order to restart pattern generation function.-
-            if (changearray[prevselector] != changedtext[0].innerText) {
-                text = document.getElementById("titleglitch0").innerText;
-                generatePattern();
-            }
-
-            for (i = 0; i < 9; i++) {
-                changedtext[i].textContent = changearray[arrayselector];
-                prevselector = arrayselector;
-            }
+            $(".glitchtext").text(glitcharray[arrayselector])
 
             count += 1;
             if (count >= 99) {
@@ -130,6 +126,5 @@ window.addEventListener('DOMContentLoaded', () => {
 
     }
 
-    generatePattern();
     durationSlider();
 });
