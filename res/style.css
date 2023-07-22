@@ -110,7 +110,7 @@ a:hover {
 }
 
 img {
-    background-color: white;
+    /* background-color: rgb(9, 10, 15); */
     border-radius: 1rem;
 }
 
@@ -122,12 +122,19 @@ img {
     position: absolute;
     top: 0;
     left: 0;
-    opacity: 0;
+    opacity: 1;
     transition: opacity 1s ease-out;
+}
+.gradientbg{
+    background: linear-gradient(to right, rgb(9, 10, 25), #203a43, #2c5364); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+.hrblur{
+    height: 25px;
+    filter: blur(16px);
 }
 
 .image-hover:hover {
-    opacity: 1;
+    opacity: 0;
 }
 
 textbox div {
@@ -242,20 +249,21 @@ body {
 @keyframes slideInFromLeft {
     0% {
         background-color: rgba(0, 0, 0, 1);
-        z-index: 100;
+
     }
 
-    15% {
-        background-color: rgba(0, 0, 0, 1);
-    }
 
     100% {
         background-color: rgba(0, 0, 0, 0);
-        z-index: -2;
+
     }
 }
 
 inverseflash {
+    user-select: none;
+    pointer-events: none;
+    z-index: 2;
+    position: absolute;
     width: 100%;
     height: 100%;
     animation: 1s ease-out 0s 1 slideInFromLeft;

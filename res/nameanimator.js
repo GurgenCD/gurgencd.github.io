@@ -7,7 +7,8 @@ var ignoreWhiteSpaces = true;
 window.addEventListener('DOMContentLoaded', () => {
 
     var text = $(".glitchtext").text();
-    //Since the glitch css effect requires multiple divs, this simply sets the text globally.
+
+    //Since the glitch css effect requires multiple divs, this simply sets the text globally at start.
     $(".glitchtext").text(text);
 
     var letterMap =
@@ -74,15 +75,20 @@ window.addEventListener('DOMContentLoaded', () => {
     function generateAnimation(glitchtext) {
 
         let textsplit = glitchtext.split('');
+
         //Can't quite think of a more efficient way to ignore whitespaces
-        if (ignoreWhiteSpaces) {
-            var spacesMap = new Array;
-            for (a = 0; a < textsplit.length; a++) {
-                if (!isLetter(textsplit[a])) {
-                    spacesMap.push(a);
+        if(text.includes(" "))
+        {
+            if (ignoreWhiteSpaces) {
+
+                var spacesMap = new Array;
+                for (a = 0; a < textsplit.length; a++) {
+                    if (!isLetter(textsplit[a])) {
+                        spacesMap.push(a);
+                    }
                 }
+                textsplit = textsplit.filter(char => char !== ' ')
             }
-            textsplit = textsplit.filter(char => char !== ' ')
         }
 
         let glitcharray = [];
@@ -96,11 +102,12 @@ window.addEventListener('DOMContentLoaded', () => {
                 let random = Math.floor(Math.random() * pickedCharmap.length);
                 modifiedtext[charRank.origPos[x]] = pickedCharmap[random];
             }
-
-            if (ignoreWhiteSpaces) {
-                console.log(spacesMap)
-                for (b = 0; b < spacesMap.length; b++) {
-                    modifiedtext.splice(spacesMap[b], 0, " ")
+            if(text.includes(" "))
+            {
+                if (ignoreWhiteSpaces) {
+                    for (b = 0; b < spacesMap.length; b++) {
+                        modifiedtext.splice(spacesMap[b], 0, " ")
+                    }
                 }
             }
 
