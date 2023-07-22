@@ -125,9 +125,16 @@ img {
     opacity: 1;
     transition: opacity 1s ease-out;
 }
+
 .gradientbg{
     background: linear-gradient(to right, rgb(9, 10, 25), #203a43, #2c5364); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    box-shadow: inset 0 0 5rem rgba(0, 0, 0,0);
 }
+.gradientbginv{
+    background: linear-gradient(to right, #2c5364, #203a43, #090b1a); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    box-shadow: inset 0 0 5rem rgba(0, 0, 0,0);
+}
+
 .hrblur{
     height: 25px;
     filter: blur(16px);
