@@ -22,6 +22,15 @@ a:hover {
     color: #622f7c !important;
 }
 
+.hex{
+    position: absolute;
+    z-index: 0;
+    background-repeat: repeat;
+    background-image: url("hexop.svg");
+    width: 100%;
+    height: 620px;
+}
+
 #backgroundkinda {
     background-color: rgb(9, 10, 15);
     width: 100vw;

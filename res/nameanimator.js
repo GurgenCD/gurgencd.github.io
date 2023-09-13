@@ -2,7 +2,7 @@
 // A lot of the script was written a while ago and I slapped parametricity just a second ago.
 
 window.addEventListener('DOMContentLoaded', () => {
-    const maxReplacementCount = 2;
+    const maxReplacementCount = 4;
     const divs = window.document.getElementsByClassName("glitchtext");
 
     const letterMap = {
@@ -14,7 +14,8 @@ window.addEventListener('DOMContentLoaded', () => {
         "N": ["#"],
         "O": ["0"],
         "S": ["$"],
-        "U": ["%"]
+        "U": ["%"],
+		"R": ["5"]
     };
 
     function leetifyChar(c) {
@@ -58,10 +59,10 @@ window.addEventListener('DOMContentLoaded', () => {
 
   	const s = divs[0].textContent; // Initial text must be in the first div.
     setTextAll(divs, s); // Replicate among us all the divs.
-    let handle = setTimeout(function () {
+
     let handle = setInterval(function () {
         setTextAll(divs, randomlyLeetifyChars(s, maxReplacementCount));
 
     }, 200);
-    }, 1000);
+
 });
