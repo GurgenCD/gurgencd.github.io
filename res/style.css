@@ -3,7 +3,7 @@
     src: url(BarlowCondensed-Light.ttf);
 }
 
-img {
+img:not(.non-fading){
     animation: fadeIn 2s;
 }
 
